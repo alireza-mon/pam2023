@@ -9,15 +9,20 @@ from tqdm import tqdm
 import pickle as pk
 from os.path import join as path_join
 
-'''
-Please include the URLs you would like to analyze in the articles.csv file, preferably using the canonical form of the URLs. The required columns for the analysis are "canonical_url", "bias", "reliability", and "source" (if conducting an outlet-specific analysis). Otherwise, just the first three are enough. A sample file is provided for reference.
+# Define the directory where the data will be saved
+DATA_DIR = './data'
 
-To access the proprietary rankings of the article used in the paper, kindly visit Ad Fontes Media's website for access and licensing information.
-'''
+# Define whether to use pagination technique when querying the API
+USE_PAGINATION = False
 
 API_KEY = os.environ.get('CT_API_KEY')
-DATA_DIR = './data'
-USE_PAGINATION = False
+
+'''
+Please include the URLs you would like to analyze in the articles.csv file, preferably using the canonical form of the URLs.
+The required columns for the analysis are "canonical_url", "bias", "reliability", and "source" (if conducting an outlet-specific analysis).
+Otherwise, just the first three are enough. A sample file is provided for reference.
+To access the proprietary rankings of the article used in the paper, kindly visit Ad Fontes Media's website for access and licensing information.
+'''
 
 
 def pickle_data(obj, file_path):
